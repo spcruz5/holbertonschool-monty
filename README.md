@@ -1,8 +1,8 @@
-#Stacks, Queues, FIFO, LIFO 
+# Stacks, Queues, FIFO, LIFO
 
+The goal of this project is to create an interpreter for Monty ByteCodes files.
 
-
-##Compilation & Output
+## Compilation & Output
 
 $ gcc -Wall -Werror -Wextra -pedantic -std=c90 *.c -o monty
 
