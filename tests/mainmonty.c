@@ -7,6 +7,7 @@
  * Return: 0 if success.
  */
 
+int check = 0;
 int main(int ac, char **av)
 {
 	stack_t *head = NULL;
@@ -15,7 +16,7 @@ int main(int ac, char **av)
 	void (*ptr)(stack_t **, unsigned int);
 	int flag;
 	FILE *fp;
-	char *lineptr = NULL;
+	char **purse, *lineptr = NULL;
 	size_t size = 0;
 
 	if (ac != 2)
@@ -34,7 +35,6 @@ int main(int ac, char **av)
 		_perror(av[1], 0, 1);
 	for (i = 0; flag != EOF; i++)
 	{
-		lineptr = NULL;
 		size = 0;
 		flag = getline(&lineptr, &size, fp);
 		lineno++;
@@ -42,27 +42,30 @@ int main(int ac, char **av)
 			purse = tokenize(lineptr);
 		for (j = 0; purse[j]; j++)
 		{
-			ptr = matchf(purse[j]);
+			ptr = matchf(purse[j]);	
 			if (ptr)
-			{
+			{	
 				if (check == 1)
-				{
+				{	
 					ares = atoi(purse[j + 1]);
 					if (ares !=  0)
-						ptr(&head, ares);
+					{
+						ptr(&head, ares);	
+						break;
+					}
 					else
 						_perror(purse[j], lineno, 2);
 				}
 				else
+				{
 					ptr(&head, lineno);
+					break;
+				}	
 			}
 			else
 				_perror(purse[j], lineno, 3);
 		}
-		fclose(fp);
-		free(new);
-		free(lineptr);
 	}
-return (0);
+	fclose(fp);
+	return (0);
 }
-

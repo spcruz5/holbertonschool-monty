@@ -12,7 +12,7 @@ char **tokenize(char *line)
 	int bufsize = 400;
 	char **purse;
 
-	char *delim = " ";
+	char *delim = " \n\t";
 	char *token;
 
 	token = strtok(line, delim);
