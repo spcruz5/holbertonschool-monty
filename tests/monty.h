@@ -51,5 +51,9 @@ void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
+void _perror(char *str, int lineno, int errtype);
+void (*matchf(const char *opc))(stack_t **, unsigned int);
+size_t print_stack(const stack_t *h);
+
 
 #endif

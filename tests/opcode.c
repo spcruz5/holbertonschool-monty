@@ -18,13 +18,29 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	newNode->n = ///to head
+	newNode->n = line_number;
 	newNode->prev = NULL;
 	newNode->next = *stack;
 
 	if (*stack)
 		(*stack)->prev = newNode;
 	*stack = newNode;
+}
+
+/**
+ * print_stack - print ele of a doubly linked list
+ * @h: ptr to the head node of list
+ * Return: num of nodes
+ */
+size_t print_stack(const stack_t *h)
+{
+    int i;
+
+    if (h == NULL)
+        return (0);
+    for (i = 0; h; i++, h = h->next)
+        printf("%d\n", h->n);
+    return (i);
 }
 
 /**

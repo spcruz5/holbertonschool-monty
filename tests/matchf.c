@@ -7,12 +7,12 @@
  * Return: NULL
  */
 
-int (*matchf(const char *opc))(stack_t, unsigned int)
+void (*matchf(const char *opc))(stack_t **, unsigned int)
 {
-	int i, j;
+	int i;
 	instruction_t fmt[] = {
-		{'push', _push},
-		{'pall', _pall},
+		{"push", _push},
+		{"pall", _pall},
 		{'\0', NULL}
 	};
 
