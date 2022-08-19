@@ -12,7 +12,7 @@ int main(int ac, char **av)
 	stack_t *head = NULL;
 	int i, j, fd, flag, ares, lineno = 0;
 	int (*ptr)(stack_t, int);
-	
+
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -41,7 +41,7 @@ int main(int ac, char **av)
 				if (check == 1)
 				{
 					ares = atoi(purse[j + 1]);
-					if(ares !=  0)
+					if (ares !=  0)
 						ptr(&head, ares);
 					else
 						_perror(purse[j], lineno);
