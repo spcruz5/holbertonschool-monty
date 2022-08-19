@@ -20,8 +20,8 @@ char **tokenize(char *line)
 	purse = malloc(sizeof(char) * bufsize);
 	if (!purse)
 	{
-		perror("Failed to allocate memory");
-		exit(1);
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
 
 	for (i = 0; token != NULL; i++)
@@ -32,6 +32,3 @@ char **tokenize(char *line)
 	purse[i] = NULL;
 	return (purse);
 }
-
-
-
