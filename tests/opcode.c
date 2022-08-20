@@ -6,7 +6,7 @@
  * @line_number: line num
  * Return: void
 */
-void _push(stack_t **stack, unsigned int line_number)
+/*void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *newNode;
 
@@ -25,7 +25,36 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (*stack)
 		(*stack)->prev = newNode;
 	*stack = newNode;
+}*/
+
+void _push(stack_t **head, unsigned int n)
+{
+	stack_t *new_node;
+
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
+	new_node->n = n;
+	new_node->prev = NULL;
+
+	if (!*head)
+	{
+		*head = new_node;
+		new_node->next = NULL;
+	}
+	else
+	{
+		new_node->next = *head;
+		(*head)->prev = new_node;
+		*head = new_node;
+	}
 }
+
+
 
 /**
  * print_stack - print ele of a doubly linked list

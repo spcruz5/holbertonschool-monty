@@ -9,10 +9,9 @@
 char **tokenize(char *line)
 {
 	int i;
-	int bufsize = 400;
-	char **purse;
+	int bufsize = 800;
 
-	char *delim = " \n\t";
+	char *delim = " ";
 	char *token;
 
 	token = strtok(line, delim);

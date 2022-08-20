@@ -19,7 +19,7 @@ void (*matchf(const char *opc))(stack_t **, unsigned int)
 		{"nop", _nop},
 		{'\0', NULL}
 	};
-	for (i = 0; fmt[i].opcode; i++)
+	for (i = 0; i < 4; i++)
 	{
 		printf("%ld\n", strlen(fmt[i].opcode));
 		if (strcmp(fmt[i].opcode, opc)  == 0)
