@@ -21,7 +21,6 @@ void (*matchf(const char *opc))(stack_t **, unsigned int)
 	};
 	for (i = 0; i < 4; i++)
 	{
-		printf("%ld\n", strlen(fmt[i].opcode));
 		if (strcmp(fmt[i].opcode, opc)  == 0)
 		{
 			if (i == 0)

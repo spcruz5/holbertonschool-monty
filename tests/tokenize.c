@@ -11,7 +11,7 @@ char **tokenize(char *line)
 	int i;
 	int bufsize = 800;
 
-	char *delim = " ";
+	char *delim = " \n\t";
 	char *token;
 
 	token = strtok(line, delim);
