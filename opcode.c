@@ -3,40 +3,28 @@
 /**
  * _push - pushes elem to stack
  * @stack: double ptr to stack
- * @line_number: line num * Return: void
+ * @num: line num * Return: void
 */
 void _push(stack_t **stack, unsigned int num)
 {
 	stack_t *newNode;
-	(void)num;
 
 	newNode = malloc(sizeof(stack_t));
 
 	if (!newNode)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_dlist(*stack);
 		exit(EXIT_FAILURE);
 	}
-	newNode->n = data;
-	newNode->prev = NULL;
+
 	newNode->next = *stack;
+	newNode->prev = NULL;
+	newNode->n = num;
 
 	if (*stack)
 		(*stack)->prev = newNode;
 	*stack = newNode;
-}
-
-/**
- * print_stack - print ele of a doubly linked list
- * @h: ptr to the head node of list
- * Return: num of nodes
- */
-void print_stack(const stack_t *h)
-{
-    if (h == NULL)
-        return;
-    for ( ; h ; h = h->next)
-        printf("%d\n", h->n); 
 }
 
 /**
@@ -47,8 +35,15 @@ void print_stack(const stack_t *h)
  */
 void _pall(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current =  *stack;
+
 	(void)line_number;
-	print_stack(*stack);
+
+	while (current)
+	{
+		printf("%d\n", current->n);
+		current = current->next;
+	}
 }
 
 /**

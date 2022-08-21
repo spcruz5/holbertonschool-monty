@@ -11,7 +11,7 @@ char **tokenize(char *line)
 	int i;
 	int bufsize = 800;
 
-	char *delim = " \t";
+	char *delim = " \n\a\t";
 	char *token;
 	char **wallet;
 

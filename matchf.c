@@ -2,8 +2,9 @@
 #include <ctype.h>
 
 /**
- * matchf - matches opcode with function 
+ * matchf - matches opcode with function
  * @purse: purse of tokens
+ * @lineptr: buffer to save line
  * @h: head of node
  * @fp: file stream
  * @lineno: line number
@@ -23,7 +24,7 @@ FILE *fp, unsigned int lineno)
 		{NULL, NULL}
 	};
 
-	if (strcmp(purse[0], fmt[0].opcode)  == 0)
+	if (strcmp(purse[0], "push")  == 0)
 	{
 		if (!purse[1] || isdigit(*cont) == 0)
 		{
@@ -35,7 +36,7 @@ FILE *fp, unsigned int lineno)
 		}
 	}
 	if (purse[1])
-		data = atoi(purse[1]);
+		lineno = atoi(purse[1]);
 	for (i = 0; fmt[i].opcode != NULL; i++)
 	{
 		if (strcmp(fmt[i].opcode, purse[0])  == 0)

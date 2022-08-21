@@ -38,16 +38,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern int data;
-
 char **tokenize(char *line);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
 void _perror(char *filename, int lineno, int errtype);
-void matchf(char **purse, char *lineptr, stack_t **h, FILE *fp, unsigned int lineno);
-void print_stack(const stack_t *h);
+void matchf(char **purse, char *lineptr,
+stack_t **h, FILE *fp, unsigned int lineno);
 void free_dlist(stack_t *head);
 
 #endif

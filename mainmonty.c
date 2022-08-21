@@ -7,8 +7,6 @@
  * Return: 0 if success.
  */
 
-int data;
-
 int main(int ac, char **av)
 {
 	stack_t *head = NULL;
