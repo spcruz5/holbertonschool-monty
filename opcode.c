@@ -8,6 +8,7 @@
 void _push(stack_t **stack, unsigned int num)
 {
 	stack_t *newNode;
+	(void)num;
 
 	newNode = malloc(sizeof(stack_t));
 
@@ -16,7 +17,7 @@ void _push(stack_t **stack, unsigned int num)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	newNode->n = num;
+	newNode->n = data;
 	newNode->prev = NULL;
 	newNode->next = *stack;
 
@@ -24,35 +25,6 @@ void _push(stack_t **stack, unsigned int num)
 		(*stack)->prev = newNode;
 	*stack = newNode;
 }
-/*
-void _push(stack_t **head, unsigned int n)
-{
-	stack_t *new_node;
-
-	new_node = malloc(sizeof(stack_t));
-	if (!new_node)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	new_node->n = n;
-	new_node->prev = NULL;
-
-	if (!*head)
-	{
-		*head = new_node;
-		new_node->next = NULL;
-	}
-	else
-	{
-		new_node->next = *head;
-		(*head)->prev = new_node;
-		*head = new_node;
-	}
-}
-*/
-
 
 /**
  * print_stack - print ele of a doubly linked list
@@ -72,7 +44,7 @@ void print_stack(const stack_t *h)
  * @stack: double ptr to stack
  * @line_number: line num
  * Return: void
-*/
+ */
 void _pall(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
@@ -84,7 +56,8 @@ void _pall(stack_t **stack, unsigned int line_number)
  * @stack: double ptr to stack
  * @line_number: line num
  * Return: void
-*/
+ */
+
 void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
@@ -94,9 +67,6 @@ void _pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
-
-
-
 
 
 /**

@@ -11,13 +11,14 @@ char **tokenize(char *line)
 	int i;
 	int bufsize = 800;
 
-	char *delim = " \n\t";
+	char *delim = " \t";
 	char *token;
+	char **wallet;
 
 	token = strtok(line, delim);
 
-	purse = malloc(sizeof(char) * bufsize);
-	if (!purse)
+	wallet = malloc(sizeof(char) * bufsize);
+	if (!wallet)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
@@ -25,9 +26,15 @@ char **tokenize(char *line)
 
 	for (i = 0; token != NULL; i++)
 	{
-		purse[i] = token;
+		wallet[i] = token;
 		token = strtok(NULL, delim);
 	}
-	purse[i] = NULL;
-	return (purse);
+	if ((!token && !*wallet) || *wallet[0] == '#')
+	{
+		free(wallet);
+		free(token);
+		return (NULL);
+	}
+	wallet[i] = NULL;
+	return (wallet);
 }
