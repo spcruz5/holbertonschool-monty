@@ -51,3 +51,25 @@ void free_dlist(stack_t *head)
 		free(current);
 	}
 }
+
+/**
+ * check_val - checks if the string is valid input
+ * @str: string to be checked
+ * Return: 0 if not valid, greater than 0 otherwise
+ */
+
+int check_val(char *str)
+{
+	int i = 0, val = 0;
+
+	if (str[0] == '-')
+		i++;
+	for (; str[i]; i++)
+	{
+		val = isdigit(str[i]);
+		if (val == 0)
+			break;
+	}
+return (val);
+}
+

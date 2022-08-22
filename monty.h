@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -47,5 +48,6 @@ void _perror(char *filename, int lineno, int errtype);
 void matchf(char **purse, char *lineptr,
 stack_t **h, FILE *fp, unsigned int lineno);
 void free_dlist(stack_t *head);
+int check_val(char *str);
 
 #endif

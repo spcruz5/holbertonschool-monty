@@ -1,5 +1,4 @@
 #include "monty.h"
-#include <ctype.h>
 
 /**
  * matchf - matches opcode with function
@@ -14,7 +13,7 @@
 void matchf(char **purse, char *lineptr, stack_t **h,
 FILE *fp, unsigned int lineno)
 {
-	int i;
+	int i, flag = 0;
 	char *cont = purse[1];
 	instruction_t fmt[] = {
 		{"push", _push},
@@ -26,7 +25,9 @@ FILE *fp, unsigned int lineno)
 
 	if (strcmp(purse[0], "push")  == 0)
 	{
-		if (!purse[1] || isdigit(*cont) == 0)
+		if (purse[1])
+			flag = check_val(cont);
+		if (!purse[1] || flag == 0)
 		{
 			free(purse);
 			free(lineptr);
