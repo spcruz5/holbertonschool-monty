@@ -25,7 +25,10 @@ int main(int ac, char **av)
 	{
 		purse = tokenize(lineptr);
 		if (!purse)
+		{
+			lineno++;
 			continue;
+		}
 		matchf(purse, lineptr, &head, fp, lineno);
 		lineno++;
 		free(purse);

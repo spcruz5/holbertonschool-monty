@@ -40,6 +40,10 @@ FILE *fp, unsigned int lineno)
 	for (i = 0; fmt[i].opcode != NULL; i++)
 	{
 		if (strcmp(fmt[i].opcode, purse[0])  == 0)
+		{
 			fmt[i].f(h, lineno);
+			return;
+		}
 	}
+	_perror(purse[0], lineno, 3);
 }

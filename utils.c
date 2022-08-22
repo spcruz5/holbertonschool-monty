@@ -28,7 +28,7 @@ void _perror(char *filename, int lineno, int errtype)
 	}
 	if (errtype == 3)
 	{
-		fprintf(stderr, "L%d: unknown instruction\n", lineno);
+		fprintf(stderr, "L%d: unknown instruction %s\n", lineno, filename);
 		exit(EXIT_FAILURE);
 	}
 }
