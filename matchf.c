@@ -19,6 +19,9 @@ FILE *fp, unsigned int lineno)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
 		{"nop", _nop},
 		{NULL, NULL}
 	};
