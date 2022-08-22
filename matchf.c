@@ -24,7 +24,7 @@ FILE *fp, unsigned int lineno)
 		{"add", add},
 		{"nop", _nop},
 		{"sub", sub}, {"mul", mul},
-		{"div", _div},
+		{"div", _div},{"mod", mod},
 		{NULL, NULL}
 	};
 	if (strcmp(purse[0], "push")  == 0)
